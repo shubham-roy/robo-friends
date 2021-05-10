@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import CardList from './CardList';
+import App from './App'
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 
 ReactDOM.render(
-  <div className='tc'>
-    <CardList />
+  <div>
+    <App />
   </div>,
   document.getElementById('root')
 );
