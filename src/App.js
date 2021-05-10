@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchBox from './SearchBox'
 import CardList from './CardList';
-import { robots } from './robots'
 import './App.css'
 
 class App extends React.Component {
@@ -9,8 +8,21 @@ class App extends React.Component {
         super();
         this.state = {
             searchValue: '',
-            robotsList: robots
+            robotsList: []
         }
+    }
+
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/users').then(
+            response => {
+                return response.json();
+            }
+        ).then(
+            (users) => {
+                this.setState({robotsList: users});
+            }
+        )
+        console.log("mount");
     }
 
     onSearchCahnge = (event) => {
