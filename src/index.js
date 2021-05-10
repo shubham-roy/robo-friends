@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 
 ReactDOM.render(
-  <div>
+  <div className='index'>
     <App />
   </div>,
   document.getElementById('root')
