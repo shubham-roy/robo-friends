@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchBox from './SearchBox'
-import CardList from './CardList';
-import Scroll from './Scroll'
+import SearchBox from '../Components/SearchBox'
+import CardList from '../Components/CardList';
+import Scroll from '../Components/Scroll'
 import './App.css'
 
 class App extends React.Component {
@@ -23,7 +23,6 @@ class App extends React.Component {
                 this.setState({robotsList: users});
             }
         )
-        console.log("mount");
     }
 
     onSearchCahnge = (event) => {
@@ -31,12 +30,13 @@ class App extends React.Component {
     };
 
     render() {
-        const filteredRobots = this.state.robotsList.filter((robot) => {
-            return robot.name.toLowerCase().includes(this.state.searchValue.toLowerCase());
+        const {searchValue, robotsList} = this.state;
+        const filteredRobots = robotsList.filter((robot) => {
+            return robot.name.toLowerCase().includes(searchValue.toLowerCase());
         });
 
         return (
-            <div className="app tc">
+            <div className="tc">
                 <h1 className="f-6">Robo-Friends</h1>
                 <SearchBox searchChange={this.onSearchCahnge}/>
                 <Scroll>
